@@ -1,0 +1,18 @@
+Zadanie składa się z dwóch części:
+
+1. Proszę stworzyć usługę dostarczającą notowania dla EUR, USD i CHF.
+   Częstotliwość notowań powinna być konfigurowalna przynajmniej od
+   10/sek. do 1/min. Waluty mogą mieć różną częstotliwość notowań.
+   Usługa powinna przewidywać dodanie kolejnych walut do notowań.
+
+2. Stworzyć klienta prezentującego notowania walut.
+   Liczba ostatnich notowań, które będą prezentowane, powinna być
+   konfigurowalna. Klient powinien mieć możliwość przeglądania
+   danych historycznych.
+
+Zadanie należy wykonać w Java 8 z wykorzystaniem najnowszych funkcjonalności.
+Jeśli w zadaniu nie ma szczegółów, to należy podjąć własne decyzje.
+Ocenie będzie podlegać uruchomiona wersja oraz kod programu.
+Jeśli do wykonania zadania potrzeba dodatkowych bibliotek / frameworków,
+to należy wykorzystać ich najnowsze wersje.
+
