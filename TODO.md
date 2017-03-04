@@ -6,6 +6,7 @@
  - [x] choose server
  - [x] choose buildtools/project manager
  - [x] choose database
+ - [x] build hello world app with tests
  - [ ] design API
  - [ ] build service using TDD
  - [ ] how about continous integration
