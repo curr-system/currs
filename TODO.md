@@ -17,6 +17,7 @@
  - [ ] test performance
  - [ ] consider docker
 
+
 ## Links
  - [ ] https://cloud.google.com/apis/design/
  - [x] https://www.openprogrammer.info/2015/01/06/how-to-build-a-restful-service-java-8-sparkjava-in-five-minutes/
