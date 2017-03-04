@@ -9,28 +9,27 @@ import java.net.URI;
 
 /**
  * Main class.
- *
+ * Starts server and waits for CTRL+C
  */
 public class App {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://localhost:7777/currs/";
 
     /**
-     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
+     * Starts Grizzly HTTP server
      * @return Grizzly HTTP server.
      */
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
-        // in com.underdog.jersey.grizzly package
         final ResourceConfig rc = new ResourceConfig().packages("org.currs");
 
         // create and start a new instance of grizzly http server
-        // exposing the Jersey application at BASE_URI
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
 
     /**
      * Main method.
+     * Starts server and waits for CTRL+C
      * @param args
      * @throws IOException
      */
