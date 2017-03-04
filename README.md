@@ -4,7 +4,8 @@
 |:------------|:------------|--------:|
 | Buildtools  | Maven       |         |
 | API         | REST        |         |
-| Framework   | JAX-RS      |         |
+| Framework   | Jersey      |         |
+| Unit Tests  | JUnit       | 4.12    |
 | ORM         | Hibernate   |         |
 | Database    | mongodb     |         |
 | Server      | tomcat      |         |

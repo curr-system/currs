@@ -23,10 +23,14 @@
  - [x] https://codeplanet.io/principles-good-restful-api-design/
  - [x] https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
  - [ ] https://4programmers.net/Java/Maven#co-to-jest-maven
- - [ ] http://www.gajotres.net/best-available-java-restful-micro-frameworks/
+ - [x] http://www.gajotres.net/best-available-java-restful-micro-frameworks/
  - [ ] http://www.mkyong.com/tutorials/java-mongodb-tutorials/
  - [ ] http://blog.eisele.net/2015/01/nosql-with-hibernate-ogm-part-one.html
  - [ ] https://www.youtube.com/watch?v=pWbMrx5rVBE
  - [ ] https://www.tutorialspoint.com/mongodb/mongodb_java.htm
  - [ ] http://blog.eisele.net/2015/01/nosql-with-hibernate-ogm-part-one.html
+ - [x] http://www.jug.poznan.pl/wp-content/uploads/2007/04/kedziora-jaxrs.pdf
+ - [ ] https://www.mulesoft.com/tcat/tomcat-start
+ - [ ] http://stackoverflow.com/questions/21173514/create-war-file-from-pom-xml-for-an-existing-maven-project
+ - [ ] https://maven.apache.org/plugins/maven-war-plugin/usage.html
 
