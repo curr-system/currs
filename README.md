@@ -7,4 +7,5 @@
 | Framework   | JAX-RS      |         |
 | ORM         | Hibernate   |         |
 | Database    | mongodb     |         |
+| Server      | tomcat      |         |
 
