@@ -29,16 +29,13 @@ public class CurrenciesTests extends TestCase {
         curr = new Currencies(repo);
     }
 
-    /**
-     * Tests if returned list of currencies has correct JSON syntax and values
-     */
     public void testReturnsListOfCurrencies() {
         // get currencies from mock repository
         String[] currencies = repo.getAvailableCurrencies();
 
         // ask resource for data
         Response response = curr.get();
-        String json = (String)response.getEntity();
+        String json = "{currencies:"+(String)response.getEntity()+"}";
         System.out.println(json);
 
         // check response
@@ -56,16 +53,13 @@ public class CurrenciesTests extends TestCase {
         }
     }
 
-    /**
-     * Tests if result has links to other resources
-     */
     public void testResultHasLinks() {
         // get currencies from mock repository
         String[] currencies = repo.getAvailableCurrencies();
 
         // ask resource for data
         Response response = curr.get();
-        String json = (String)response.getEntity();
+        String json = "{currencies:"+(String)response.getEntity()+"}";
         System.out.println(json);
 
         // check response
@@ -84,6 +78,38 @@ public class CurrenciesTests extends TestCase {
             assertNotNull(a);
 
             assertTrue(a.length() > 0);
+        }
+    }
+
+    public void testReturnsErrorForNonExistingCurrency() {
+        // ask resource for data
+        Response response = curr.get("BLA");
+
+        // check response
+        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), response.getStatus());
+    }
+
+    public void testReturnsSelectedCurrencyData() {
+        // ask resource for data
+        Response response = curr.get("CHF");
+        String json = "{data:" + response.getEntity() + "}";
+        System.out.println(json);
+
+        // check response
+        JSONObject jsonObject = new JSONObject(json);
+        assertTrue(jsonObject.has("data"));
+
+        JSONArray d = jsonObject.optJSONArray("data");
+        assertNotNull("data array not found", d);
+        assertEquals(MockRepository.DATA.length, d.length());
+
+        for (int i = 0; i < MockRepository.DATA.length; i++) {
+            JSONObject o = d.getJSONObject(i);
+            assertTrue(o.has("date"));
+            assertTrue(o.has("open"));
+            assertTrue(o.has("close"));
+            assertTrue(o.has("min"));
+            assertTrue(o.has("max"));
         }
     }
 }
