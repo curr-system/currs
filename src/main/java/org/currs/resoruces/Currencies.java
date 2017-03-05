@@ -30,6 +30,8 @@ public class Currencies {
     private static final int DAYS_MIN_VALUE = 1;
     private static final int DAYS_MAX_VALUE = 90;
 
+    private static final int FREQUENCY_DEFAULT_VALUE = 60;
+
     private IRepository repository;
 
 
@@ -92,7 +94,7 @@ public class Currencies {
 
         // validate frequency param
         if (frequency == null) {
-            frequency = 60;
+            frequency = FREQUENCY_DEFAULT_VALUE;
         } else {
             return BAD_REQUEST_RESPONSE;
         }

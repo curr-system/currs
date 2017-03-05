@@ -7,6 +7,6 @@
 | Framework   | Jersey                         | 2.25.1  |
 | Unit Tests  | JUnit                          | 4.12    |
 | ORM         | Hibernate                      |         |
-| Database    | mongodb                        |         |
+| Database    | mongodb                        | 3.4.2   |
 | Server      | Jersey Container Grizzly2 Http | 2.25.1  |
 
