@@ -9,8 +9,10 @@ import javax.ws.rs.ext.Provider;
 public class NotFoundExceptionMapper implements ExceptionMapper<NotFoundException> {
 
     public Response toResponse(NotFoundException exception) {
-        return Response.status(Response.Status.NOT_FOUND)
-                .entity("No such resource")
+        Response.Status error = Response.Status.NOT_FOUND;
+        return Response.status(error)
+                .entity(String.format("{error:\"%s\",code:%d}",
+                        error.getReasonPhrase(), error.getStatusCode()))
                 .build();
     }
 }

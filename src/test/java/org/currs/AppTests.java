@@ -1,6 +1,5 @@
 package org.currs;
 
-import org.currs.App;
 import org.junit.After;
 import org.junit.Before;
 import junit.framework.TestCase;
@@ -10,9 +9,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Set;
 
 /**
  * Unit tests for main App class
@@ -58,12 +55,15 @@ public class AppTests extends TestCase {
      */
     public void testReturnsErrorCodeForAnyMethodOtherThenGet() {
         Response r = target.path("/currencies").request().post(Entity.json(null));
-        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), r.getStatus());
+        System.out.println(r.toString());
+        assertEquals(Response.Status.METHOD_NOT_ALLOWED.getStatusCode(), r.getStatus());
 
         r = target.path("/currencies").request().delete();
-        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), r.getStatus());
+        System.out.println(r.toString());
+        assertEquals(Response.Status.METHOD_NOT_ALLOWED.getStatusCode(), r.getStatus());
 
         r = target.path("/currencies").request().put(Entity.json(""));
-        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), r.getStatus());
+        System.out.println(r.toString());
+        assertEquals(Response.Status.METHOD_NOT_ALLOWED.getStatusCode(), r.getStatus());
     }
 }

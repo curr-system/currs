@@ -1,11 +1,14 @@
 package org.currs.resources;
 
-import junit.framework.TestCase;
 import org.currs.model.MockRepository;
 import org.currs.resoruces.Currencies;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import org.junit.Before;
+import junit.framework.TestCase;
+
 
 /**
  * Unit tests for main Currencies REST resource
@@ -24,6 +27,9 @@ public class CurrenciesTests extends TestCase {
         curr = new Currencies(repo);
     }
 
+    /**
+     * Tests if returned list of currencies has correct JSON syntax and values
+     */
     public void testReturnsListOfCurrencies() {
         // get currencies from mock repository
         String[] currencies = repo.getAvailableCurrencies();
