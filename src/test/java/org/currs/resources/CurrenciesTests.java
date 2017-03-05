@@ -83,7 +83,7 @@ public class CurrenciesTests extends TestCase {
 
     public void testReturnsErrorForNonExistingCurrency() {
         // ask resource for data
-        Response response = curr.get("BLA");
+        Response response = curr.get("BLA", null, null, null, null);
 
         // check response
         assertEquals(Response.Status.NO_CONTENT.getStatusCode(), response.getStatus());
@@ -91,7 +91,7 @@ public class CurrenciesTests extends TestCase {
 
     public void testReturnsSelectedCurrencyData() {
         // ask resource for data
-        Response response = curr.get("CHF");
+        Response response = curr.get("CHF", null, null, null, null);
         String json = "{data:" + response.getEntity() + "}";
         System.out.println(json);
 

@@ -1,15 +1,15 @@
 package org.currs.resoruces;
 
 import org.currs.model.IRepository;
+import org.joda.time.DateTime;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * Currencies REST resource
@@ -18,15 +18,20 @@ import java.util.Arrays;
 public class Currencies {
 
     /**
-     * Data source
-     */
-    private IRepository repository;
-
-    /**
      * No content response
      */
     private static final Response NO_CONTENT_RESPONSE = Response
             .status(Response.Status.NO_CONTENT).entity("[]").build();
+
+    /**
+     * Default value for "days" parameter
+     */
+    private static final int DEFAULT_DAYS_VALUE = 7;
+
+    /**
+     * Data source
+     */
+    private IRepository repository;
 
     @Inject
     public Currencies(IRepository repository) {
@@ -50,7 +55,11 @@ public class Currencies {
     @GET
     @Path("/{currency}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(@PathParam("currency") String currency) {
+    public Response get(@PathParam("currency") String currency,
+                        @QueryParam("days")  Integer days,
+                        @QueryParam("year")  Integer year,
+                        @QueryParam("month") Integer month,
+                        @QueryParam("day")   Integer day) {
         if (currency == null || currency.trim() == "") {
             return NO_CONTENT_RESPONSE;
         }
@@ -60,11 +69,12 @@ public class Currencies {
             return NO_CONTENT_RESPONSE;
         }
 
-        // 2016-09-06
-        int year = 2016;
-        int month = 9;
-        int day = 6;
-        int days = 7;
+        DateTime dt = new DateTime();
+        if (day == null) day = dt.getDayOfMonth();
+        if (month == null) month = dt.getMonthOfYear();
+        if (year == null) year = dt.getYear();
+
+        if (days == null) days = DEFAULT_DAYS_VALUE;
 
         String[] data = repository.getCurrencyData(currency, days, year, month, day);
         return Response.status(Response.Status.OK)
