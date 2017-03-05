@@ -36,4 +36,7 @@
  - [ ] http://stackoverflow.com/questions/21173514/create-war-file-from-pom-xml-for-an-existing-maven-project
  - [ ] https://maven.apache.org/plugins/maven-war-plugin/usage.html
  - [x] http://stackoverflow.com/questions/31992461/how-to-run-jersey-server-webservice-server-without-using-tomcat
+ - [ ] https://www.tutorialspoint.com/spring/index.htm
+ - [ ] http://stackoverflow.com/questions/10729482/dependency-injection-with-jersey
+ - [ ] https://jersey.java.net/documentation/latest/user-guide.html#new-from-archetype
 
