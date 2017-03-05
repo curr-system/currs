@@ -36,7 +36,8 @@ public class CurrenciesTests extends TestCase {
         JSONObject json = new JSONObject(response);
         assertTrue(json.has("currencies"));
 
-        JSONArray c = json.getJSONArray("currencies");
+        JSONArray c = json.optJSONArray("currencies");
+        assertNotNull("currencies array not found", c);
         assertEquals(currencies.length, c.length());
 
         for (int i = 0; i < currencies.length; i++) {
