@@ -1,5 +1,6 @@
-package org.currs;
+package org.currs.resources;
 
+import org.currs.App;
 import org.junit.After;
 import org.junit.Before;
 import junit.framework.TestCase;
@@ -12,8 +13,8 @@ import javax.ws.rs.client.WebTarget;
 /**
  * Unit tests for MyResource
  */
-public class MyResourceTests extends TestCase
-{
+public class MyResourceTests extends TestCase {
+
     private HttpServer server;
     private WebTarget target;
 

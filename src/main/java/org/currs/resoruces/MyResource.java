@@ -1,4 +1,4 @@
-package org.currs;
+package org.currs.resoruces;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
