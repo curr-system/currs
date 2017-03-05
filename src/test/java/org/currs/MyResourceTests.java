@@ -10,7 +10,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 
 /**
- * Unit test for simple App.
+ * Unit tests for MyResource
  */
 public class MyResourceTests extends TestCase
 {
@@ -29,11 +29,12 @@ public class MyResourceTests extends TestCase
 
     @After
     public void tearDown() throws Exception {
+        // stop the server
         server.shutdown();
     }
 
     /**
-     * Test to see that the message "Got it!" is sent in the response.
+     * Check if server is running and returns "Got it!" response for "myresource"
      */
     public void testGetIt() {
         String responseMsg = target.path("myresource").request().get(String.class);

@@ -6,6 +6,7 @@
  - [x] choose server
  - [x] choose buildtools/project manager
  - [x] choose database
+ - [x] build hello world app with tests
  - [ ] design API
  - [ ] build service using TDD
  - [ ] how about continous integration
@@ -15,6 +16,7 @@
  - [ ] put on raspberry pi
  - [ ] test performance
  - [ ] consider docker
+
 
 ## Links
  - [ ] https://cloud.google.com/apis/design/
