@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import org.junit.Before;
 import junit.framework.TestCase;
 
+import javax.ws.rs.core.Response;
+
 
 /**
  * Unit tests for main Currencies REST resource
@@ -35,14 +37,15 @@ public class CurrenciesTests extends TestCase {
         String[] currencies = repo.getAvailableCurrencies();
 
         // ask resource for data
-        String response = curr.get();
-        System.out.println(response);
+        Response response = curr.get();
+        String json = (String)response.getEntity();
+        System.out.println(json);
 
         // check response
-        JSONObject json = new JSONObject(response);
-        assertTrue(json.has("currencies"));
+        JSONObject jsonObject = new JSONObject(json);
+        assertTrue(jsonObject.has("currencies"));
 
-        JSONArray c = json.optJSONArray("currencies");
+        JSONArray c = jsonObject.optJSONArray("currencies");
         assertNotNull("currencies array not found", c);
         assertEquals(currencies.length, c.length());
 
@@ -52,5 +55,6 @@ public class CurrenciesTests extends TestCase {
             assertEquals(currencies[i], o.get("name"));
         }
     }
+
 
 }
