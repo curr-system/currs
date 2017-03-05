@@ -23,6 +23,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+            <scope>test</scope>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-server -->
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
