@@ -10,7 +10,7 @@ At the moment the following currencies are available:
   - USD
   - CHF
 
-#### /currencies/<currency name>
+#### /currencies/`<currency name>`
 Returns given currency data.
 By default data from the last week are returned with frequency 60/sec (1/min).
 
