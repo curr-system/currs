@@ -8,7 +8,10 @@ import junit.framework.TestCase;
 import org.glassfish.grizzly.http.server.HttpServer;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.Set;
 
 /**
@@ -48,5 +51,19 @@ public class AppTests extends TestCase {
         }
 
         assertNull(e);
+    }
+
+    /**
+     * Checks if server returns error codes for different methods then get
+     */
+    public void testReturnsErrorCodeForAnyMethodOtherThenGet() {
+        Response r = target.path("/currencies").request().post(Entity.json(null));
+        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), r.getStatus());
+
+        r = target.path("/currencies").request().delete();
+        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), r.getStatus());
+
+        r = target.path("/currencies").request().put(Entity.json(""));
+        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), r.getStatus());
     }
 }

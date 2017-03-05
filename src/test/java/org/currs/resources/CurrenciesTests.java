@@ -46,4 +46,5 @@ public class CurrenciesTests extends TestCase {
             assertEquals(currencies[i], o.get("name"));
         }
     }
+
 }
