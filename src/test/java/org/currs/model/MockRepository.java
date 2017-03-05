@@ -1027,7 +1027,7 @@ public class MockRepository implements  IRepository {
             return new String[0];
         }
 
-        String pattern = String.format("date.:.%s-0?%s-0?%s ", year, month, day);
+        String pattern = String.format("%s.0?%s.0?%s ", year, month, day);
         Pattern p = Pattern.compile(pattern);
         int startIndex = -1;
         for (int i = 0; i < DATA.length; i++) {

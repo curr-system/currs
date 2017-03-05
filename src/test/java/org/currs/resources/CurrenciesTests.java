@@ -83,7 +83,7 @@ public class CurrenciesTests extends TestCase {
 
     public void testReturnsErrorForNonExistingCurrency() {
         // ask resource for data
-        Response response = curr.get("BLA", null, null, null, null);
+        Response response = curr.get("BLA", null, null, null, null, null);
 
         // check response
         assertEquals(Response.Status.NO_CONTENT.getStatusCode(), response.getStatus());
@@ -91,7 +91,7 @@ public class CurrenciesTests extends TestCase {
 
     public void testReturnsSelectedCurrencyData() {
         // ask resource for data
-        Response response = curr.get("CHF", null, null, null, null);
+        Response response = curr.get("CHF", null, 2016, 9, 6, null);
         String json = "{data:" + response.getEntity() + "}";
         System.out.println(json);
 
@@ -101,9 +101,11 @@ public class CurrenciesTests extends TestCase {
 
         JSONArray d = jsonObject.optJSONArray("data");
         assertNotNull("data array not found", d);
-        assertEquals(MockRepository.DATA.length, d.length());
 
-        for (int i = 0; i < MockRepository.DATA.length; i++) {
+        int length = d.length();
+        assertEquals(167, length);
+
+        for (int i = 0; i < length; i++) {
             JSONObject o = d.getJSONObject(i);
             assertTrue(o.has("date"));
             assertTrue(o.has("open"));
