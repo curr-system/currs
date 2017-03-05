@@ -5,6 +5,7 @@ import org.currs.model.IRepository;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -22,10 +23,10 @@ public class Currencies {
     private IRepository repository;
 
     /**
-     * Not found response
+     * No content response
      */
-    private static final Response NOT_FOUND_RESPONSE = Response
-            .status(Response.Status.NOT_FOUND).entity("[]").build();
+    private static final Response NO_CONTENT_RESPONSE = Response
+            .status(Response.Status.NO_CONTENT).entity("[]").build();
 
     @Inject
     public Currencies(IRepository repository) {
@@ -49,14 +50,14 @@ public class Currencies {
     @GET
     @Path("/{currency}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(String currency) {
+    public Response get(@PathParam("currency") String currency) {
         if (currency == null || currency.trim() == "") {
-            return NOT_FOUND_RESPONSE;
+            return NO_CONTENT_RESPONSE;
         }
 
         String[] currencies = repository.getAvailableCurrencies();
         if(!Arrays.asList(currencies).contains(currency)) {
-            return NOT_FOUND_RESPONSE;
+            return NO_CONTENT_RESPONSE;
         }
 
         // 2016-09-06

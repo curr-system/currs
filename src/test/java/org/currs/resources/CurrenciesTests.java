@@ -86,7 +86,7 @@ public class CurrenciesTests extends TestCase {
         Response response = curr.get("BLA");
 
         // check response
-        assertEquals(Response.Status.NOT_FOUND.getStatusCode(), response.getStatus());
+        assertEquals(Response.Status.NO_CONTENT.getStatusCode(), response.getStatus());
     }
 
     public void testReturnsSelectedCurrencyData() {
