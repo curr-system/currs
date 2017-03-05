@@ -56,5 +56,34 @@ public class CurrenciesTests extends TestCase {
         }
     }
 
+    /**
+     * Tests if result has links to other resources
+     */
+    public void testResultHasLinks() {
+        // get currencies from mock repository
+        String[] currencies = repo.getAvailableCurrencies();
 
+        // ask resource for data
+        Response response = curr.get();
+        String json = (String)response.getEntity();
+        System.out.println(json);
+
+        // check response
+        JSONObject jsonObject = new JSONObject(json);
+        assertTrue(jsonObject.has("currencies"));
+
+        JSONArray c = jsonObject.optJSONArray("currencies");
+        assertNotNull("currencies array not found", c);
+        assertEquals(currencies.length, c.length());
+
+        for (int i = 0; i < currencies.length; i++) {
+            JSONObject o = c.getJSONObject(i);
+            assertTrue(o.has("links"));
+
+            JSONArray a = o.optJSONArray("links");
+            assertNotNull(a);
+
+            assertTrue(a.length() > 0);
+        }
+    }
 }
