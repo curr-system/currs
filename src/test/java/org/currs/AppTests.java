@@ -1,6 +1,5 @@
 package org.currs;
 
-import org.currs.App;
 import org.junit.After;
 import org.junit.Before;
 import junit.framework.TestCase;
@@ -8,8 +7,9 @@ import junit.framework.TestCase;
 import org.glassfish.grizzly.http.server.HttpServer;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import java.util.Set;
+import javax.ws.rs.core.Response;
 
 /**
  * Unit tests for main App class
@@ -48,5 +48,22 @@ public class AppTests extends TestCase {
         }
 
         assertNull(e);
+    }
+
+    /**
+     * Checks if server returns error codes for different methods then get
+     */
+    public void testReturnsErrorCodeForAnyMethodOtherThenGet() {
+        Response r = target.path("/currencies").request().post(Entity.json(null));
+        System.out.println(r.toString());
+        assertEquals(Response.Status.METHOD_NOT_ALLOWED.getStatusCode(), r.getStatus());
+
+        r = target.path("/currencies").request().delete();
+        System.out.println(r.toString());
+        assertEquals(Response.Status.METHOD_NOT_ALLOWED.getStatusCode(), r.getStatus());
+
+        r = target.path("/currencies").request().put(Entity.json(""));
+        System.out.println(r.toString());
+        assertEquals(Response.Status.METHOD_NOT_ALLOWED.getStatusCode(), r.getStatus());
     }
 }

@@ -1,5 +1,8 @@
 package org.currs.resoruces;
 
+import org.currs.model.IRepository;
+
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -10,6 +13,13 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("myresource")
 public class MyResource {
+
+    private IRepository repository;
+
+    @Inject
+    public MyResource(IRepository repository) {
+        this.repository = repository;
+    }
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent

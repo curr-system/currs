@@ -1,5 +1,6 @@
 package org.currs;
 
+import org.currs.resoruces.Error;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -9,8 +10,7 @@ import javax.ws.rs.ext.Provider;
 public class NotFoundExceptionMapper implements ExceptionMapper<NotFoundException> {
 
     public Response toResponse(NotFoundException exception) {
-        return Response.status(Response.Status.NOT_FOUND)
-                .entity("No such resource")
-                .build();
+        Error e = new Error(Response.Status.NOT_FOUND);
+        return e.getResponse();
     }
 }
