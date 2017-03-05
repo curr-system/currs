@@ -7,10 +7,11 @@
  - [x] choose buildtools/project manager
  - [x] choose database
  - [x] build hello world app with tests
- - [ ] design API
- - [ ] build service using TDD
- - [ ] how about continous integration
+ - [x] design API
+ - [x] build service using TDD
  - [ ] gather data and put into database
+ - [ ] connect service with database
+ - [ ] how about continous integration
  - [ ] configure server
  - [ ] how about continous delivery
  - [ ] put on raspberry pi
