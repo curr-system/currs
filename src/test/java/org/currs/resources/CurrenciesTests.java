@@ -91,7 +91,9 @@ public class CurrenciesTests extends TestCase {
 
     public void testReturnsSelectedCurrencyData() {
         // ask resource for data
+        long before = System.currentTimeMillis();
         Response response = curr.get("CHF", null, 2016, 9, 6, null);
+        System.out.println("Time: " + (System.currentTimeMillis() - before) + "ms");
         String json = "{data:" + response.getEntity() + "}";
         System.out.println(json);
 
