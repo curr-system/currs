@@ -46,7 +46,7 @@ public class Currencies {
         String[] currencies = repository.getAvailableCurrencies();
 
         for (int i = 0; i < currencies.length; i++) {
-            currencies[i] = String.format("{name:\"%s\",links:[{href:\"/currencies/%s\",rel:\"data\"}]}", currencies[i], currencies[i]);
+            currencies[i] = String.format("{name:%s,links:[{href:\"/currencies/%s\",rel:data}]}", currencies[i], currencies[i]);
         }
 
         return Response.status(Response.Status.OK)
@@ -109,7 +109,7 @@ public class Currencies {
     }
 
     private String[] applyFrequencyOnData(String[] data, Integer frequency) {
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
 
         if (data == null || data.length == 0) {
             return new String[0];
@@ -119,9 +119,8 @@ public class Currencies {
             return data.clone();
         }
 
-        // "{"date":"2016-09-06 22:13:40","open":"4.1308","close":"3.9614","min":"4.2107","max":"3.5416"}"
-        String format = "{\"date\":\"%s\",\"open\":\"%s\",\"close\":\"%s\",\"min\":\"%.4f\",\"max\":\"%.4f\"}";
-        String pattern = "\"date\":\"(.+?)\",\"open\":\"(.+?)\",\"close\":\"(.+?)\",\"min\":\"(.+?)\",\"max\":\"(.+?)\"";
+        String format = "{date=%s, open=%s, close=%s, min=%.4f, max=%.4f}";
+        String pattern = "date=(.+?), open=(.+?), close=(.+?), min=(.+?), max=(.+?)";
         Pattern r = Pattern.compile(pattern);
 
         String dateTime = null;
