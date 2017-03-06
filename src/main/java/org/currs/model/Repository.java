@@ -19,7 +19,7 @@ public class Repository implements IRepository {
     private final String DB_ADDRESS = "localhost";
     private final String DB_NAME = "currs";
 
-    public static final int DATA_PER_DAY = 8640;
+    public static final int DATA_PER_DAY = 8645;
 
     private static final BasicDBObject FIELDS = new BasicDBObject()
                                                  .append("_id",   0)
