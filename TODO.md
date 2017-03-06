@@ -9,14 +9,18 @@
  - [x] build hello world app with tests
  - [x] design API
  - [x] build service using TDD
+ - [x] connect service with database
  - [ ] gather data and put into database
- - [ ] connect service with database
- - [ ] how about continous integration
- - [ ] configure server
- - [ ] how about continous delivery
- - [ ] put on raspberry pi
+
  - [ ] test performance
+ - [ ] logging
+ - [ ] service configuration
+ - [ ] configure server
  - [ ] consider docker
+ - [ ] how about continous integration
+ - [ ] how about continous delivery
+
+ - [ ] put on raspberry pi
 
 
 ## Links
@@ -40,5 +44,4 @@
  - [ ] https://www.tutorialspoint.com/spring/index.htm
  - [ ] http://stackoverflow.com/questions/10729482/dependency-injection-with-jersey
  - [ ] https://jersey.java.net/documentation/latest/user-guide.html#new-from-archetype
- - [ ] https://developer.yahoo.com/yql/console/?q=show%20tables&env=store://datatables.org/alltableswithkeys#h=select+*+from+yahoo.finance.historicaldata+where+symbol+%3D+%22EUR%3DX%22+and+startDate+%3D+%222009-09-11%22+and+endDate+%3D+%222010-03-10%22
-
+ - [ ] http://www.mkyong.com/mongodb/java-mongodb-hello-world-example/
