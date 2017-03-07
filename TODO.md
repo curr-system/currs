@@ -10,7 +10,7 @@
  - [x] design API
  - [x] build service using TDD
  - [x] connect service with database
- - [ ] gather data and put into database
+ - [x] gather data and put into database
 
  - [ ] test performance
  - [ ] logging
